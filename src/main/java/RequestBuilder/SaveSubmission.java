@@ -54,8 +54,7 @@ public class SaveSubmission {
 
     private static JSONArray buildLocationArray(List<Map<String,String>> locationSheet,
                                                 List<Map<String,String>> classificationSheet,
-                                                String iteration,
-                                                String policyId) {
+                                                String iteration) {
         List<Map<String,String>> filtered = locationSheet.stream()
                 .filter(row -> iteration.equals(row.get("Iteration")))
                 .collect(Collectors.toList());
@@ -75,7 +74,7 @@ public class SaveSubmission {
         JSONObject template = new JSONObject(loadTemplate("/Policy.json"));
         row.forEach((k, v) -> replaceRecursive(template, "${{" + k + "}}", safeValue(v)));
 
-        JSONArray locations = buildLocationArray(locationSheet, classificationSheet, iteration, row.get("PolicyId"));
+        JSONArray locations = buildLocationArray(locationSheet, classificationSheet, iteration);
         template.put("GeneralLiabilityLocation", locations);
 
         return template;

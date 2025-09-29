@@ -71,6 +71,7 @@ public class MSIGE2E extends Base {
         //Copy Submission
         CopySubmissionExec copySubmissionExec = new CopySubmissionExec();
         copySubmissionExec.ExecCopySubmission(main, SubID);*/
+
         // Create Quote
         CreateQuoteExec createQuoteExec = new CreateQuoteExec();
         createQuoteExec.ExeCreateQuote(main, SubID, carrierBlock);
@@ -85,6 +86,7 @@ public class MSIGE2E extends Base {
         // Reactivate Quote
         ReactivateQuoteExec reactivateQuoteExec = new ReactivateQuoteExec();
         reactivateQuoteExec.ExeReactivateQuote(QuoteID, main);*/
+
         //Bind Request
         BindRequestExec bindRequestExec = new BindRequestExec();
         bindRequestExec.ExeBindRequest(QuoteID, main);

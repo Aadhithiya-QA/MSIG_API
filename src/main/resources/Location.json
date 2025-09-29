@@ -1,0 +1,285 @@
+{
+    "OptionalFormsSelectedList": [
+        {
+            "Name": ""
+        }
+    ],
+    "PollutionTerritory": "999",
+    "UnitNumber": "${{LocationNumber}}",
+    "OwnersContractorsTerritory": "999",
+    "ProdsCompldOpsPDDeductible": "${{ProdsCompldOpsPDDeductibleLocation}}",
+    "PremisesOperationsTerritory": "${{PremisesOperationsTerritory}}",
+    "RailroadTerritory": "999",
+    "LiquorDeductible": "No Deductible",
+    "ProductWithdrawalDeductible": "No Deductible",
+    "PremOpsBIDeductible": "${{PremOpsBIDeductibleLocation}}",
+    "LiquorLiabTerritory": "001",
+    "ProdsCompldOpsBIDeductible": "${{ProdsCompldOpsBIDeductibleLocation}}",
+    "PremOpsPDDeductible": "${{PremOpsPDDeductibleLocation}}",
+    "ProdsCompldOpsTerritory": "${{ProdsCompldOpsTerritory}}",
+    "ProdsCompldOpsBIPDDeductible": "${{ProdsCompldOpsBIPDDeductibleLocation}}",
+    "PremOpsBIPDDeductible": "${{PremOpsBIPDDeductibleLocation}}",
+    "LiquorLiabTerr": "Other",
+    "TerrorismTerritory": "${{TerrorismTerritory}}",
+    "PremisesOperationsTerr": "${{PremisesOperationsTerr}}",
+    "GeneralLiabilityClassification": "${{GeneralLiabilityClassification}}",
+    "GeneralLiabilityDesignatedLocationsProdsCompldOpsAggregateLimit": [
+        {
+            "ManualPremium": "0",
+            "WrittenPremium": "",
+            "ProratedPriorPremium": "",
+            "AddedDt": "",
+            "WaivedOffPremium": "",
+            "ChangeType": "",
+            "ChangeEffectiveDt": "",
+            "ChangeExpirationDt": "",
+            "TotalWaivedOffPremium": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityExclDamageToWorkPerformedBySubcontractorsOnYourBehalfDesignSitesOps": [
+        {
+            "ManualPremium": "0",
+            "GeneralLiabilityExclDamageToWorkPerformedBySubcontractorsOnYourBehalfDesignSitesOpsDetail": [
+                {
+                    "DescriptionOfDesignatedSiteOrOperation": ""
+                }
+            ],
+            "ChangeType": "",
+            "ChangeExpirationDt": "",
+            "WrittenPremium": "",
+            "TotalWaivedOffPremium": "",
+            "ProratedPriorPremium": "",
+            "AddedDt": "",
+            "WaivedOffPremium": "",
+            "ChangeEffectiveDt": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityAddlInsdOwnersLesseesContrctrsCompldOpsLocLvl": [
+        {
+            "GeneralLiabilityAddlInsdOwnersLesseesContrctrsCompldOpsLocLvlDetail": [
+                {
+                    "LocationOfCompletedOperation": "",
+                    "ManualPremium": "0",
+                    "ChangeEffectiveDt": "",
+                    "WaivedOffPremium": "",
+                    "AddedDt": "",
+                    "ChangeType": "",
+                    "TotalWaivedOffPremium": "",
+                    "WrittenPremium": "",
+                    "ChangeExpirationDt": "",
+                    "ProratedPriorPremium": "",
+                    "MinimumPremium": ""
+                }
+            ],
+            "GeneralLiabilityAddlInsdOwnersLesseesContrctrsCompldOpsLocLvl_Selected": "",
+            "ChangeEffectiveDt": "",
+            "AddedDt": "",
+            "ChangeExpirationDt": "",
+            "ChangeType": "",
+            "WrittenPremium": ""
+        }
+    ],
+    "GeneralLiabilityExclExplosionCollapseUndrgrdPropDmgHazardSpecifiedOps": [
+        {
+            "ManualPremium": "0",
+            "WaivedOffPremium": "",
+            "ProratedPriorPremium": "",
+            "WrittenPremium": "",
+            "TotalWaivedOffPremium": "",
+            "AddedDt": "",
+            "ChangeEffectiveDt": "",
+            "ChangeExpirationDt": "",
+            "ChangeType": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityDesignatedLocsAggregateLimitProdsCompldOps": [
+        {
+            "ManualPremium": "0",
+            "ChangeType": "",
+            "TotalWaivedOffPremium": "",
+            "WrittenPremium": "",
+            "WaivedOffPremium": "",
+            "ChangeExpirationDt": "",
+            "AddedDt": "",
+            "ProratedPriorPremium": "",
+            "ChangeEffectiveDt": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityDesignatedLocLiquorAggLimit": [
+        {
+            "ManualPremium": "0",
+            "ProratedPriorPremium": "",
+            "WaivedOffPremium": "",
+            "ChangeExpirationDt": "",
+            "AddedDt": "",
+            "ChangeEffectiveDt": "",
+            "TotalWaivedOffPremium": "",
+            "ChangeType": "",
+            "WrittenPremium": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityExclAllHazardsInConnectionWithDesignatedPrem": [
+        {
+            "ManualPremium": "0",
+            "TotalWaivedOffPremium": "",
+            "WrittenPremium": "",
+            "WaivedOffPremium": "",
+            "ChangeType": "",
+            "ChangeExpirationDt": "",
+            "ChangeEffectiveDt": "",
+            "ProratedPriorPremium": "",
+            "AddedDt": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityDesignatedLocGeneralAggLimit": [
+        {
+            "ManualPremium": "0",
+            "WrittenPremium": "",
+            "AddedDt": "",
+            "ChangeType": "",
+            "ChangeExpirationDt": "",
+            "WaivedOffPremium": "",
+            "TotalWaivedOffPremium": "",
+            "ChangeEffectiveDt": "",
+            "ProratedPriorPremium": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityAddlInsdOwnersManagersOrLessorsOfPremisesLiquorLiability": [
+        {
+            "ManualPremium": "0",
+            "TotalWaivedOffPremium": "",
+            "ChangeExpirationDt": "",
+            "WaivedOffPremium": "",
+            "ProratedPriorPremium": "",
+            "WrittenPremium": "",
+            "ChangeEffectiveDt": "",
+            "ChangeType": "",
+            "AddedDt": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityAddlInsdMortgageeAssigneeOrRecvr": [
+        {
+            "GeneralLiabilityAddlInsdMortgageeAssigneeOrRecvrDetail": [
+                {
+                    "DesignationOfPremises": ""
+                }
+            ],
+            "ChangeType": "",
+            "AddedDt": "",
+            "ChangeEffectiveDt": "",
+            "ChangeExpirationDt": ""
+        }
+    ],
+    "GeneralLiabilityExclExplosionCollapseUndrgrdPropDmgHazardSpecifiedOpsExcepted": [
+        {
+            "ManualPremium": "0",
+            "ChangeType": "",
+            "WaivedOffPremium": "",
+            "ProratedPriorPremium": "",
+            "TotalWaivedOffPremium": "",
+            "WrittenPremium": "",
+            "ChangeEffectiveDt": "",
+            "AddedDt": "",
+            "ChangeExpirationDt": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityAddlInsdMgrsLessorsPrem": [
+        {
+            "GeneralLiabilityAddlInsdMgrsLessorsPremDetail": [
+                {
+                    "ManualPremium": "0",
+                    "WrittenPremium": "",
+                    "ProratedPriorPremium": "",
+                    "TotalWaivedOffPremium": "",
+                    "AddedDt": "",
+                    "ChangeExpirationDt": "",
+                    "WaivedOffPremium": "",
+                    "ChangeType": "",
+                    "ChangeEffectiveDt": "",
+                    "MinimumPremium": ""
+                }
+            ],
+            "GeneralLiabilityAddlInsdMgrsLessorsPrem_Selected": "",
+            "ChangeType": "",
+            "AddedDt": "",
+            "ChangeEffectiveDt": "",
+            "ChangeExpirationDt": "",
+            "WrittenPremium": ""
+        }
+    ],
+    "GeneralLiabilityAddlInsdOwnersLesseesContrctrsCompletedOperationsSubjectToTheGeneralAggregate": [
+        {
+            "ManualPremium": "0",
+            "AddedDt": "",
+            "TotalWaivedOffPremium": "",
+            "ChangeType": "",
+            "WaivedOffPremium": "",
+            "ProratedPriorPremium": "",
+            "ChangeExpirationDt": "",
+            "WrittenPremium": "",
+            "ChangeEffectiveDt": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "GeneralLiabilityLimitationOfCoverageToInsuredPremisesLocLvl": [
+        {
+            "ManualPremium": "0",
+            "TotalWaivedOffPremium": "",
+            "WaivedOffPremium": "",
+            "ChangeExpirationDt": "",
+            "WrittenPremium": "",
+            "AddedDt": "",
+            "ChangeEffectiveDt": "",
+            "ProratedPriorPremium": "",
+            "ChangeType": "",
+            "MinimumPremium": ""
+        }
+    ],
+    "AddedDt": "",
+    "ChangeExpirationDt": "",
+    "ChangeEffectiveDt": "",
+    "ChangeType": "",
+    "GeneralLiabilityAddlInsdCoOwnerInsdPrem": [
+        {
+            "ChangeEffectiveDt": "",
+            "ChangeType": "",
+            "AddedDt": "",
+            "ChangeExpirationDt": ""
+        }
+    ],
+    "GeneralLiabilityAddlInsdOwnersOrOtherIntsFromWhomLandLeased": [
+        {
+            "ChangeEffectiveDt": "",
+            "ChangeType": "",
+            "AddedDt": "",
+            "ChangeExpirationDt": ""
+        }
+    ],
+    "GeneralLiabilityExclusionCoverageCMedicalPaymentsLocation": [
+        {
+            "ChangeEffectiveDt": "",
+            "AddedDt": "",
+            "ChangeType": "",
+            "ChangeExpirationDt": ""
+        }
+    ],
+    "GeneralLiabilityExclusionPatientInjury": [
+        {
+            "ChangeType": "",
+            "ChangeEffectiveDt": "",
+            "ChangeExpirationDt": "",
+            "AddedDt": ""
+        }
+    ],
+    "WrittenPremium": "",
+    "LocationAddressID": "${{Address}}"
+}
