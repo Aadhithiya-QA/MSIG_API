@@ -29,7 +29,7 @@ public class ExcelWriter {
                 try (FileOutputStream os = new FileOutputStream(xlsxFile)) {
                     workbook.write(os);
                     os.flush();
-                    excelDataWriterLog.info("Excel file has been updated successfully.");
+//                    excelDataWriterLog.info("Excel file has been updated successfully.");
 
                 }
 

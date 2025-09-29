@@ -94,6 +94,19 @@ public class MSIGE2E extends Base {
         GetQuoteExec getQuoteExec = new GetQuoteExec();
         getQuoteExec.ExeGetQuote(QuoteID, main);
 
+        ExcelUpdater(main);
+
+        /*String QuoteNumber = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir") + "\\" + main.get("Iteration") + "\\Response\\GetQuote Response.txt", "QuoteNumber");
+
+        log.info("Quote Number ==== ",QuoteNumber);
+        //Find Quote
+        FindQuoteExec findQuoteExec = new FindQuoteExec();
+        findQuoteExec.ExeFindQuote(QuoteNumber, main);*/
+
+    }
+
+    private void ExcelUpdater(Map<String,String>main){
+
         String PremOpsPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationPremOpsCoverage.Premium");
         ExcelWriter.excelWriter("PremOps Premium",PremOpsPremium,Thread.currentThread().getName());
 
@@ -115,29 +128,6 @@ public class MSIGE2E extends Base {
         String TotalPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","TotalPremium");
         ExcelWriter.excelWriter("Total Premium",TotalPremium,Thread.currentThread().getName());
 
-        /*String QuoteNumber = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir") + "\\" + main.get("Iteration") + "\\Response\\GetQuote Response.txt", "QuoteNumber");
-
-        log.info("Quote Number ==== ",QuoteNumber);
-        //Find Quote
-        FindQuoteExec findQuoteExec = new FindQuoteExec();
-        findQuoteExec.ExeFindQuote(QuoteNumber, main);*/
-
     }
-
-   /* private void ExcelUpdater(Map<String,String>main){
-
-        String PremOpsPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationPremOpsCoverage.Premium");
-        ExcelWriter.excelWriter("PremOps Premium",PremOpsPremium,Thread.currentThread().getName());
-
-        String ProdCompldPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationProdsCompldOpsCoverage.Premium");
-        ExcelWriter.excelWriter("ProdCompld Premium",ProdCompldPremium,Thread.currentThread().getName());
-
-        String LCM = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationPremOpsCoverage.LCM");
-        ExcelWriter.excelWriter("LCM",LCM,Thread.currentThread().getName());
-
-        String ExpectedLossRatio = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].ERPExpectedLossRatio");
-        ExcelWriter.excelWriter("Expected Loss Ratio",ExpectedLossRatio,Thread.currentThread().getName());
-
-    }*/
 
 }
