@@ -25,6 +25,7 @@ public class CopySubmissionExec {
         ResponseSaver.saveResponse(map.get("Iteration"),CopySubmissionResponse,"CopySubmission Response");
 
         softAssert.assertEquals(response.statusCode(),200,"Status code mismatch");
+        softAssert.assertAll();
 
     }
 }

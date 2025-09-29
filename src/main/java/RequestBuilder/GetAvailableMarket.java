@@ -37,6 +37,7 @@ public class GetAvailableMarket {
                 "    \"ProductNumber\": \""+PropertyUtils.getValue("ProductNumber")+"\",\n" +
                 "    \"ProductVerNumber\": \""+PropertyUtils.getValue("ProductVerNumber")+"\",\n" +
                 "    \"QuoteType\": \"New Business\",\n" +
+                "    \"RepositoryName\": \"Submission\",\n" +
                 "    \"PolicyEffectiveDate\": \""+PropertyUtils.getValue("PolicyEffectiveDate")+"\",\n" +
                 "    \"TermInMonths\": \"12\"\n" +
                 "}";

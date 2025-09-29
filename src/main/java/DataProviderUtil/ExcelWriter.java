@@ -49,7 +49,9 @@ public class ExcelWriter {
         // Reading first sheet of Excel file
         Sheet sheet = null;
 
-        assert sheet!=null;
+        sheet= workbook.getSheet("Main");
+
+        assert sheet!= null;
         // Iterating Excel to update
         for (Row row : sheet) {
             for (Cell cell : row) {
@@ -64,12 +66,12 @@ public class ExcelWriter {
                     if (formatter.formatCellValue(row1.getCell(cell.getColumnIndex())).isEmpty()) {
                         // Enter Values
                         row1.createCell(cell.getColumnIndex()).setCellValue(result);
-                        excelDataWriterLog.info("Updated {} to excel : {}.", columnName, result);
+//                        excelDataWriterLog.info("Updated {} to excel : {}.", columnName, result);
                     } else {
                         // Append Values
                         String existingValue = formatter.formatCellValue(row1.getCell(cell.getColumnIndex()));
                         row1.createCell(cell.getColumnIndex()).setCellValue(existingValue.concat("\n").concat(result));
-                        excelDataWriterLog.info("Appended {} with {} to excel.", existingValue, result);
+//                        excelDataWriterLog.info("Appended {} with {} to excel.", existingValue, result);
                     }
                     break;
                 }

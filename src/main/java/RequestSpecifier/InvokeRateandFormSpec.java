@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class InvokeRateandFormSpec {
 
-    public static RequestSpecification SpecInvokeRate(String SubID){
+    public static RequestSpecification SpecInvokeRate(String SubID,String carrierBlock){
 
         String url = "";
         if (PropertyUtils.getValue("EnvironmentToRun").equalsIgnoreCase("UAT")){
@@ -23,12 +23,12 @@ public class InvokeRateandFormSpec {
                 .header("Content-Type", "application/json")
                 .header("Accept-Encoding", "gzip, deflate, br")
                 .header("Connection", "keep-alive")
-                .header("EventName", "InvokeRateFormWorkFlow_9.0.0")
+                .header("EventName", "InvokeRateFormWorkFlow_10.0.0")
                 .header("Token",PropertyUtils.getValue("Token"))
                 .header("OwnerId", PropertyUtils.getValue("OwnerId"))
                 .header("Mode", PropertyUtils.getValue("Mode"))
                 .header("Environment", PropertyUtils.getValue("Env"))
-                .body(InvokeRateandForm.invokeRateandFormRequest(SubID));
+                .body(InvokeRateandForm.invokeRateandFormRequest(SubID,carrierBlock));
         return requestSpecification;
 
     }

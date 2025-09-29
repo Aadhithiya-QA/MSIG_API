@@ -19,7 +19,7 @@ public class Base {
         }
 
         // Cloning the input sheet
-//        ExcelDuplicator.DuplicateWorkbookS("testDataSheet","");
+        ExcelDuplicator.DuplicateWorkbookS("testDataSheet","");
 
     }
 
@@ -29,11 +29,11 @@ public class Base {
         // To get the Map which is passed in @Test method
         //Object[] parameters = result.getParameters();
 
-       /* if (result.getStatus() == ITestResult.SUCCESS) {
+        if (result.getStatus() == ITestResult.SUCCESS) {
             ExcelWriter.excelWriter("Execution Status","Pass",Thread.currentThread().getName());
         } else if (result.getStatus() == ITestResult.FAILURE) {
             ExcelWriter.excelWriter("Execution Status","Fail",Thread.currentThread().getName());
-        }*/
+        }
 
     }
 

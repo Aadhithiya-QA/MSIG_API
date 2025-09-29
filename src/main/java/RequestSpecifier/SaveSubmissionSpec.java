@@ -5,11 +5,16 @@ import Utilities.PropertyUtils;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.List;
 import java.util.Map;
 
 public class SaveSubmissionSpec {
 
-    public static RequestSpecification SpecSaveSubmission(Map<String,String>params){
+    public static RequestSpecification SpecSaveSubmission(String iteration,
+                                                          Map<String, String> mainSheet,
+                                                          List<Map<String, String>> policySheet,
+                                                          List<Map<String, String>> locationSheet,
+                                                          List<Map<String, String>> classificationSheet){
 
         String url = "";
         if (PropertyUtils.getValue("EnvironmentToRun").equalsIgnoreCase("UAT")){
@@ -30,7 +35,7 @@ public class SaveSubmissionSpec {
                 .header("OwnerId", PropertyUtils.getValue("OwnerId"))
                 .header("Mode", PropertyUtils.getValue("Mode"))
                 .header("Environment", PropertyUtils.getValue("Env"))
-                .body(SaveSubmission.buildRequest(params));
+                .body(SaveSubmission.buildFinalRequest(iteration,mainSheet,policySheet,locationSheet,classificationSheet));
         return requestSpecification;
 
     }
