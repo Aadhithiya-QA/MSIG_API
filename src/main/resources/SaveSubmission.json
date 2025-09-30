@@ -9,9 +9,9 @@
                     }
                 ],
                 "GeneralLiability": {
-                     "LastRateLookUpDate": "2025-08-11",
-                    "ExpirationDate": "2023-08-01",
-                    "EffectiveDate": "2022-08-01",
+                    "LastRateLookUpDate": "2025-09-01",
+                    "ExpirationDate": "2026-09-01",
+                    "EffectiveDate": "2025-09-01",
                     "MinimumPremium": "0",
                     "County": "Jefferson County",
                     "City": "Bessemer",

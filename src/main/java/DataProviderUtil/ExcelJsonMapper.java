@@ -40,6 +40,14 @@ public class ExcelJsonMapper {
             Map.entry("ScheduleRatingModificationApplies","ScheduleRatingModificationApplies"),
             Map.entry("TRIPTerminatesBeforeExpirationDate", "TRIPTerminatesBeforeExpirationDate"),
             Map.entry("TerrorismCoverage", "TerrorismCoverage"),
+            Map.entry("SRPCooperationSafetyProgramPct","SRPCooperationSafetyProgramPct"),
+            Map.entry("SRPCooperationMedicalFacilitiesPct","SRPCooperationMedicalFacilitiesPct"),
+            Map.entry("SRPEmployeesPct","SRPEmployeesPct"),
+            Map.entry("SRPClassificationPct","SRPClassificationPct"),
+            Map.entry("SRPEquipmentPct","SRPEquipmentPct"),
+            Map.entry("SRPLocationExposureInsidePremisesPct","SRPLocationExposureInsidePremisesPct"),
+            Map.entry("SRPLocationExposureOutsidePremisesPct","SRPLocationExposureOutsidePremisesPct"),
+            Map.entry("SRPPremisesPct","SRPPremisesPct"),
 
             // Location-level
             Map.entry("LocationNumber", "LocationNumber"),

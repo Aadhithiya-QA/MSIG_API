@@ -1,4 +1,5 @@
 import CommonFunctions.CarrierExtractor;
+
 import CommonFunctions.ParamGetter;
 import DataProviderUtil.ExcelDataFeeder;
 import DataProviderUtil.ExcelWriter;
@@ -6,10 +7,14 @@ import FrameWork.FrameWorkPilot;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.Map;
+
 
 public class MSIGE2E extends Base {
 
@@ -95,6 +100,7 @@ public class MSIGE2E extends Base {
         getQuoteExec.ExeGetQuote(QuoteID, main);
 
         ExcelUpdater(main);
+        compareValues(main);
 
         /*String QuoteNumber = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir") + "\\" + main.get("Iteration") + "\\Response\\GetQuote Response.txt", "QuoteNumber");
 
@@ -106,6 +112,15 @@ public class MSIGE2E extends Base {
     }
 
     private void ExcelUpdater(Map<String,String>main){
+
+        String ExpectedLossRatio = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].ERPExpectedLossRatio");
+        ExcelWriter.excelWriter("Expected Loss Ratio",ExpectedLossRatio,Thread.currentThread().getName());
+
+        String LCM = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityProductWithdrawalCoverageForm[0].LCM");
+        ExcelWriter.excelWriter("LCM",LCM,Thread.currentThread().getName());
+
+        String ScheduleRatingModificationFactor = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].ScheduleRatingModificationFactor");
+        ExcelWriter.excelWriter("ScheduleRatingModificationFactor",ScheduleRatingModificationFactor,Thread.currentThread().getName());
 
         String PremOpsPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationPremOpsCoverage.Premium");
         ExcelWriter.excelWriter("PremOps Premium",PremOpsPremium,Thread.currentThread().getName());
@@ -119,15 +134,84 @@ public class MSIGE2E extends Base {
         String ProdCompldPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationProdsCompldOpsCoverage.Premium");
         ExcelWriter.excelWriter("ProdCompld Premium",ProdCompldPremium,Thread.currentThread().getName());
 
-        String LCM = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityProductWithdrawalCoverageForm[0].LCM");
-        ExcelWriter.excelWriter("LCM",LCM,Thread.currentThread().getName());
-
-        String ExpectedLossRatio = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].ERPExpectedLossRatio");
-        ExcelWriter.excelWriter("Expected Loss Ratio",ExpectedLossRatio,Thread.currentThread().getName());
-
         String TotalPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","TotalPremium");
         ExcelWriter.excelWriter("Total Premium",TotalPremium,Thread.currentThread().getName());
 
     }
+
+    private void compareValues(Map<String, String> main) {
+
+        try {
+            String iteration = main.get("Iteration");
+
+            // --- 1. Get Actual TotalPremium from JSON ---
+            String jsonPath = FrameWorkPilot.getDynamicPath("resultDir") + "\\" + iteration + "\\Response\\GetQuote Response.txt";
+            String totalPremiumActualStr = ParamGetter.getPropertyUsingPath(jsonPath, "TotalPremium");
+            double totalPremiumActual = Double.parseDouble(totalPremiumActualStr);
+
+            // --- 2. Get Expected TotalPremium from Excel ---
+            String excelPath = FrameWorkPilot.getDynamicPath("outputExcel");
+            String sheetName = "Main";
+            String headerName = "Expected Total Premium";
+
+            FileInputStream fis = new FileInputStream(excelPath);
+            Workbook workbook = new XSSFWorkbook(fis);
+            Sheet sheet = workbook.getSheet(sheetName);
+
+            // Find header column index
+            Row headerRow = sheet.getRow(0);
+            int columnIndex = -1;
+            for (Cell cell : headerRow) {
+                if (cell.getStringCellValue().trim().equalsIgnoreCase(headerName)) {
+                    columnIndex = cell.getColumnIndex();
+                    break;
+                }
+            }
+            if (columnIndex == -1) {
+                workbook.close();
+                throw new RuntimeException("Header not found: " + headerName);
+            }
+
+            // Find row index based on iteration (assuming iteration corresponds to row number starting from 1)
+            int rowIndex = Integer.parseInt(iteration);
+            Row row = sheet.getRow(rowIndex);
+            if (row == null) {
+                workbook.close();
+                throw new RuntimeException("Row not found for iteration: " + iteration);
+            }
+
+            Cell expectedCell = row.getCell(columnIndex);
+            double totalPremiumExpected;
+
+            // Safely read numeric or string cell
+            if (expectedCell.getCellType() == CellType.NUMERIC) {
+                totalPremiumExpected = expectedCell.getNumericCellValue();
+            } else if (expectedCell.getCellType() == CellType.STRING) {
+                String val = expectedCell.getStringCellValue().replaceAll(",", "").trim();
+                totalPremiumExpected = Double.parseDouble(val);
+            } else {
+                workbook.close();
+                throw new RuntimeException("Unexpected cell type at iteration " + iteration);
+            }
+
+            workbook.close();
+            String result;
+            // --- 3. Compare actual vs expected ---
+            if (Double.compare(totalPremiumActual, totalPremiumExpected) == 0) {
+                result = "Pass";
+                System.out.println("PASS: Iteration " + iteration + " -> Total Premium matches: " + totalPremiumActual);
+            } else {
+                result = "Fail";
+                System.out.println("FAIL: Iteration " + iteration + " -> Expected: " + totalPremiumExpected + ", Actual: " + totalPremiumActual);
+            }
+            ExcelWriter.excelWriter("Premium Status",result,Thread.currentThread().getName());
+
+        } catch (Exception e) {
+            System.err.println("Error comparing values for iteration " + main.get("Iteration"));
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

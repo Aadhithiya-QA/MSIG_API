@@ -35,7 +35,7 @@ public class InvokeRateandForm {
                 "        },\n" +
                 "        \"EventName\": \"InvokeRateFormWorkFlow_10.0.0\",\n" +
                 "        \"OwnerId\": \""+PropertyUtils.getValue("OwnerId")+"\",\n" +
-                "        \"LastRateLookUpDate\": \"09/11/2025\",\n" +
+                "        \"LastRateLookUpDate\": \"09/01/2025\",\n" +
                 "        \"ConfigurationType\": \"Product\",\n" +
                 "        \"RepositoryName\": \"Submission\",\n" +
                 "        \"IsTaxInvocationNeeded\": \"N\",\n" +

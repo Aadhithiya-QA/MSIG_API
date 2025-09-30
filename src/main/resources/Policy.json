@@ -13,7 +13,7 @@
     "OwnersContractorsEachOccurrenceLimit": "1,000,000",
     "ProductWithdrawalParticipationPercentage": "${{ProductWithdrawalParticipationPercentage}}",
     "OwnersContractorsAggregateLimit": "2,000,000",
-    "SRPEmployeesPct": "0%",
+    "SRPEmployeesPct": "${{SRPEmployeesPct}}",
     "PollutionAggregateLimit": "200,000",
     "ERPSecondLatestYearTotalIncludedLoss": "0",
     "ERPExposuresOnSpecialUWBasisPremOpsCurrent": "1",
@@ -49,10 +49,10 @@
     "ERPYearsOfExperienceIncurred": "1",
     "ERPExperienceModificationAllOtherSublines": "0",
     "ERPThirdLatestYearYIP": "0",
-    "SRPEquipmentPct": "0%",
+    "SRPEquipmentPct": "${{SRPEquipmentPct}}",
     "ProductsWithdrawalAggregateLimit": "1,000,000",
     "ERPExposuresOnSpecialUWBasisThirdLatestYearPremOps": "1",
-    "SRPClassificationPct": "0%",
+    "SRPClassificationPct": "${{SRPClassificationPct}}",
     "ERPThirdLatestYearWithSameCarrier": "Yes",
     "ERPLatestYearTotalIncludedLoss": "0",
     "YearInClaimsMade": "${{YearInClaimsMade}}",
@@ -75,7 +75,7 @@
     "ScheduleRatingModificationApplies": "${{ScheduleRatingModificationApplies}}",
     "LimitedCovForDesignatedUnmannedAircraft": "${{LimitedCovForDesignatedUnmannedAircraft}}",
     "ERPLatestYearYIP": "0",
-    "SRPPremisesPct": "0%",
+    "SRPPremisesPct": "${{SRPPremisesPct}}",
     "EDLCoverageForm": "Claims Made",
     "EachCommonCauseLimit": "1,000,000",
     "ERPThirdLatestYearLatestValuationDate": "",
@@ -107,10 +107,10 @@
     "CPPIRPMFactor": "0",
     "PremOpsProdsEachOccurrenceLimitGovernmentalSubdivision": "",
     "ProdsCompldOpsAggregateLimitGovernmentalSubdivision": "",
-    "SRPLocationExposureOutsidePremisesPct": "0%",
-    "SRPCooperationSafetyProgramPct": "0%",
-    "SRPLocationExposureInsidePremisesPct": "0%",
-    "SRPCooperationMedicalFacilitiesPct": "0%",
+    "SRPLocationExposureOutsidePremisesPct": "${{SRPLocationExposureOutsidePremisesPct}}",
+    "SRPCooperationSafetyProgramPct": "${{SRPCooperationSafetyProgramPct}}",
+    "SRPLocationExposureInsidePremisesPct": "${{SRPLocationExposureInsidePremisesPct}}",
+    "SRPCooperationMedicalFacilitiesPct": "${{SRPCooperationMedicalFacilitiesPct}}",
     "GeneralLiabilityExclProductsCompletedOperationsHazard": [
         {
             "ManualPremium": "0",
@@ -5043,7 +5043,7 @@
             "MinimumPremium": ""
         }
     ],
-    "SolartisIsPrimaryState": "",
+    "SolartisIsPrimaryState": "Yes",
     "GeneralLiabilityExclusionPFASRailroad": [
         {
             "ManualPremium": "",

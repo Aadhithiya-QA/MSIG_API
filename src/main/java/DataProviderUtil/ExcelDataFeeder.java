@@ -107,19 +107,18 @@ public class ExcelDataFeeder {
     // --- Utility: Get cell value as string safely ---
     private static String getCellStringValue(Cell cell) {
         if (cell == null) return "";
+        DataFormatter formatter = new DataFormatter();
         switch (cell.getCellType()) {
             case STRING:
                 return cell.getStringCellValue().trim();
             case BOOLEAN:
                 return cell.getBooleanCellValue() ? "Yes" : "No";
             case NUMERIC:
-                if (DateUtil.isCellDateFormatted(cell)) {
-                    return new DataFormatter().formatCellValue(cell).trim();
-                } else {
-                    return String.valueOf((int) cell.getNumericCellValue());
-                }
+                // Always use DataFormatter for numeric (handles %, decimals, dates etc.)
+                return formatter.formatCellValue(cell).trim();
             case FORMULA:
-                return new DataFormatter().formatCellValue(cell).trim();
+                // Evaluate & format
+                return formatter.formatCellValue(cell).trim();
             case BLANK:
             default:
                 return "";
