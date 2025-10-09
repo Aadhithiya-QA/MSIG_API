@@ -100,6 +100,7 @@ public class MSIGE2E extends Base {
         getQuoteExec.ExeGetQuote(QuoteID, main);
 
         ExcelUpdater(main);
+        Thread.sleep(1000);
         compareValues(main);
 
         /*String QuoteNumber = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir") + "\\" + main.get("Iteration") + "\\Response\\GetQuote Response.txt", "QuoteNumber");
@@ -119,8 +120,14 @@ public class MSIGE2E extends Base {
         String LCM = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityProductWithdrawalCoverageForm[0].LCM");
         ExcelWriter.excelWriter("LCM",LCM,Thread.currentThread().getName());
 
+        String ExperienceRatingModificationFactor = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].ExperienceRatingModificationFactor");
+        ExcelWriter.excelWriter("ExperienceRatingModificationFactor",ExperienceRatingModificationFactor,Thread.currentThread().getName());
+
         String ScheduleRatingModificationFactor = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].ScheduleRatingModificationFactor");
         ExcelWriter.excelWriter("ScheduleRatingModificationFactor",ScheduleRatingModificationFactor,Thread.currentThread().getName());
+
+        String FinalDeductible = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationPremOpsCoverage.FinalDeductibleFactor");
+        ExcelWriter.excelWriter("FinalDeductible",FinalDeductible,Thread.currentThread().getName());
 
         String PremOpsPremium = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetQuote Response.txt","Account.Insured[0].GeneralLiability.Policy[0].GeneralLiabilityLocation[0].GeneralLiabilityClassification[0].GeneralLiabilityClassificationPremOpsCoverage.Premium");
         ExcelWriter.excelWriter("PremOps Premium",PremOpsPremium,Thread.currentThread().getName());
