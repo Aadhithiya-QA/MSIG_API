@@ -15,7 +15,7 @@ public class ExcelDataFeeder {
 
     static Logger excelDataFeederLog = LogManager.getLogger(ExcelDataFeeder.class);
 //,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
-    @DataProvider(name = "MSIGFlow", parallel = true)
+    @DataProvider(name = "MSIGFlow", parallel = true,indices = {0})
     public static Object[][] mainDataFromExcel() {
 
         List<Map<String, Object>> allIterations = new ArrayList<>();

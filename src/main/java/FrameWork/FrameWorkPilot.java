@@ -15,6 +15,7 @@ public class FrameWorkPilot {
     static String resultDir = userDir + "\\test-output\\" + timeStamp;
     static String testDataSheet = userDir + PropertyUtils.getValue("ExcelLocation");
     static String outputExcel = userDir + "\\test-output\\" + timeStamp+"\\MSIGSanityOutput.xlsx";
+    static final String oldResults = userDir + "\\Old Results";
 
     public static synchronized String getDynamicPath(String literal) {
         switch (literal) {
@@ -29,6 +30,9 @@ public class FrameWorkPilot {
             }
             case "outputExcel" -> {
                 return outputExcel;
+            }
+            case "oldResults" -> {
+                return oldResults;
             }
             default -> {
                 return "Not Valid call to get Path Method";

@@ -4,6 +4,7 @@ import CommonFunctions.ParamGetter;
 import DataProviderUtil.ExcelDataFeeder;
 import DataProviderUtil.ExcelWriter;
 import FrameWork.FrameWorkPilot;
+import RequestBuilder.DiaryNotes;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -92,23 +93,56 @@ public class MSIGE2E extends Base {
         ReactivateQuoteExec reactivateQuoteExec = new ReactivateQuoteExec();
         reactivateQuoteExec.ExeReactivateQuote(QuoteID, main);*/
 
-        //Bind Request
-        BindRequestExec bindRequestExec = new BindRequestExec();
-        bindRequestExec.ExeBindRequest(QuoteID, main);
+
         //Get Quote
         GetQuoteExec getQuoteExec = new GetQuoteExec();
         getQuoteExec.ExeGetQuote(QuoteID, main);
 
         ExcelUpdater(main);
-        Thread.sleep(1000);
+        Thread.sleep(1500);
         compareValues(main);
+        Thread.sleep(1500);
 
-        /*String QuoteNumber = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir") + "\\" + main.get("Iteration") + "\\Response\\GetQuote Response.txt", "QuoteNumber");
+       /* String QuoteNumber = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir") + "\\" + main.get("Iteration") + "\\Response\\GetQuote Response.txt", "QuoteNumber");
 
         log.info("Quote Number ==== ",QuoteNumber);
         //Find Quote
         FindQuoteExec findQuoteExec = new FindQuoteExec();
         findQuoteExec.ExeFindQuote(QuoteNumber, main);*/
+
+        GetSubjectivityExec getSubjectivityExec = new GetSubjectivityExec();
+        getSubjectivityExec.exeGetSubjectivity(QuoteID,main);
+
+        String ID1 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[0].ID");
+        String ID2 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[1].ID");
+        String ID3 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[2].ID");
+        String ID4 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[3].ID");
+        String ID5 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[4].ID");
+        String ID6 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[5].ID");
+        String ID7 = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[6].ID");
+        String SubjectivityID = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\GetSubjectivity Response.txt","Subjectivity[0].SubjectivityID");
+
+//        DiaryNotesExec diaryNotesExec = new DiaryNotesExec();
+//        diaryNotesExec.exeDiaryNotes(QuoteID,SubjectivityID,main);
+
+        //Bind Request
+        BindRequestExec bindRequestExec = new BindRequestExec();
+        bindRequestExec.ExeBindRequest(QuoteID, main);
+
+        BindQuoteExec bindQuoteExec = new BindQuoteExec();
+        bindQuoteExec.exeBindQuote(main,QuoteID);
+
+        SaveSubjectivityExec saveSubjectivityExec = new SaveSubjectivityExec();
+        saveSubjectivityExec.exeSaveSubjectivity(QuoteID,ID1,ID2,ID3,ID4,ID5,ID6,ID7,main);
+
+        String PolicyID = ParamGetter.getPropertyUsingPath(FrameWorkPilot.getDynamicPath("resultDir")+"\\"+main.get("Iteration")+"\\Response\\BindQuote Response.txt","PolicyID");
+        log.info("PolicyID ==== {}",PolicyID);
+
+        GetPolicyExec getPolicyExec = new GetPolicyExec();
+        getPolicyExec.exeGetPolicy(PolicyID,main);
+
+        IssuePolicyExec issuePolicyExec = new IssuePolicyExec();
+        issuePolicyExec.exeIssuePolicy(PolicyID,main);
 
     }
 
