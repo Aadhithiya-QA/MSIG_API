@@ -2,9 +2,11 @@ package RequestBuilder;
 
 import Utilities.PropertyUtils;
 
+import java.util.Map;
+
 public class CreateQuote {
 
-    public static String createQuote(String SubID,String carrierBlock){
+    public static String createQuote(Map<String,String> map, String SubID, String carrierBlock){
 
         return "{\n" +
                 "        \"ServiceRequestDetail\": {\n" +
@@ -33,14 +35,14 @@ public class CreateQuote {
                 "    \"ProductVerNumber\": \""+PropertyUtils.getValue("ProductVerNumber")+"\",\n" +
                 "    \"ProductNumber\": \""+PropertyUtils.getValue("ProductNumber")+"\",\n" +
                 "    \"SubmissionID\": \""+SubID+"\",\n" +
-                "    \"EventName\": \"CreateQuoteWF_9.0.0\",\n" +
+                "    \"EventName\": \"CreateQuoteWF_10.1.0.0\",\n" +
                 "    \"IsValidationRequired\": \"N\",\n" +
-                "    \"PolicyEffectiveDate\": \""+PropertyUtils.getValue("PolicyEffectiveDate")+"\",\n" +
-                "    \"PolicyExpirationDate\": \""+PropertyUtils.getValue("PolicyExpirationDate")+"\",\n" +
+                "    \"PolicyEffectiveDate\": \""+map.get("PolicyEffectiveDate")+"\",\n" +
+                "    \"PolicyExpirationDate\": \""+map.get("PolicyExpirationDate")+"\",\n" +
                 "    \"IsCheckClearanceRequired\": \"N\",\n" +
                 "    \"IsClearanceRequired\": \"N\",\n" +
                 "    \"RepositoryName\": \"Submission\",\n" +
-                "    \"IsTaxInvocationNeeded\": \"N\",\n" +
+                "    \"IsTaxInvocationNeeded\": \"Y\",\n" +
                 "    \"IS_SUBJECTIVITY_NEEDED\": \"N\"\n" +
                 "}";
 

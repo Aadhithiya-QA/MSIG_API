@@ -1,15 +1,22 @@
 {
     "StateRegionCode": "${{StateRegionCode}}",
     "AggregateLimit": "2,000,000",
+    "CommissionReductionPercentage":"${{CommissionReductionPercentage}}",
     "OptionalFormsSelectedList": [
         {
-            "Name": ""
+            "Name": "GeneralLiabilityDisclosureOfPremiumThrough123105CertifiedActsTerrorismPursuantTerrorismAct2002"
         },
         {
             "Name": "GeneralLiabilityCapOnLossesFromCertifiedActsOfTerrorism"
         },
         {
             "Name": "GeneralLiabilityExclAthleticSportsParticipants"
+        },
+        {
+            "Name": "GeneralLiabilityExclViralOrBacterialInfectionsExceptionForDesignatedInfectionOngoingOperationsOrProducts"
+        },
+        {
+            "Name": "GeneralLiabilityEmployeeBenefitsLiabCovClaimsMade"
         }
     ],
     "ProdsCompldOpsBIPDDeductible": "${{ProdsCompldOpsBIPDDeductible}}",
@@ -157,6 +164,16 @@
             "MinimumPremium": ""
         }
     ],
+        "GeneralLiabilityExclViralOrBacterialInfectionsExceptionForDesignatedInfectionOngoingOperationsOrProducts": [
+            {
+                "GeneralLiabilityExclViralOrBacterialInfectionsExceptionForDesignatedInfectionOngoingOperationsOrProductsDetail": [
+                    {
+                        "DescriptionOfInfection": "Test",
+                        "DescriptionOfOngoingOperationsOrYourProduct": "Test Sample"
+                    }
+                ]
+            }
+        ],
     "GeneralLiabilityExclOilGasProducingOps": [
         {
             "ManualPremium": "0",
@@ -250,19 +267,16 @@
     ],
     "GeneralLiabilityEmployeeBenefitsLiabCovClaimsMade": [
         {
-            "AggregateLimitInt": "",
+            "AggregateLimitInt": "${{AggregateLimitInt}}",
+            "EachOccurrenceLimit": "${{EachOccurrenceLimit}}",
+            "NumberOfEmployees": "${{NumberOfEmployees}}",
             "RetroactiveDate": "",
-            "DeductibleInt": "",
-            "ManualPremium": "0",
+            "DeductibleInt": "${{DeductibleInt}}",
             "LimitEachEmployeeInt": "",
             "WaivedOffPremium": "",
-            "ChangeEffectiveDt": "",
             "TotalWaivedOffPremium": "",
-            "ChangeExpirationDt": "",
-            "ChangeType": "",
             "ProratedPriorPremium": "",
             "WrittenPremium": "",
-            "AddedDt": "",
             "MinimumPremium": ""
         }
     ],
@@ -4061,7 +4075,10 @@
             "AddedDt": "",
             "ChangeEffectiveDt": "",
             "ChangeType": "",
-            "ChangeExpirationDt": ""
+            "ChangeExpirationDt": "",
+            "FedShareTerrorismLossesA": "80",
+            "ActualPremiumThrough123105": "150",
+            "EndOfYear": "2030"
         }
     ],
     "GeneralLiabilityProdsCompldOpsPremiumToReachMinCoverage": {

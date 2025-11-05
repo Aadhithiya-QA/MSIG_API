@@ -14,11 +14,11 @@ public class GetAvailablemarketExec {
 
         SoftAssert softAssert = new SoftAssert();
 
-        String GetAvailableMarketRequest = GetAvailableMarket.getAvailableMarketRequest(SubID);
+        String GetAvailableMarketRequest = GetAvailableMarket.getAvailableMarketRequest(SubID,map);
         String GetAvailablemarketResponse;
 
         RequestSaver.saveRequest(map.get("Iteration"),GetAvailableMarketRequest,"GetAvailableMarket Request");
-        Response response = RestAssured.given().spec(GetAvailableMarketSpec.SpecGetAvailableMarket(SubID)).when().post();
+        Response response = RestAssured.given().spec(GetAvailableMarketSpec.SpecGetAvailableMarket(map,SubID)).when().post();
 
         GetAvailablemarketResponse = response.then().extract().body().asPrettyString();
         ResponseSaver.saveResponse(map.get("Iteration"),GetAvailablemarketResponse,"GetAvailableMarket Response");

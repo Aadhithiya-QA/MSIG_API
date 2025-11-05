@@ -5,9 +5,11 @@ import Utilities.PropertyUtils;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.Map;
+
 public class GetAvailableMarketSpec {
 
-    public static RequestSpecification SpecGetAvailableMarket(String SubID){
+    public static RequestSpecification SpecGetAvailableMarket(Map<String,String>map,String SubID){
 
         String url = "";
         if (PropertyUtils.getValue("EnvironmentToRun").equalsIgnoreCase("UAT")){
@@ -28,7 +30,7 @@ public class GetAvailableMarketSpec {
                 .header("OwnerId", PropertyUtils.getValue("OwnerId"))
                 .header("Mode", PropertyUtils.getValue("Mode"))
                 .header("Environment", PropertyUtils.getValue("Env"))
-                .body(GetAvailableMarket.getAvailableMarketRequest(SubID));
+                .body(GetAvailableMarket.getAvailableMarketRequest(SubID, map));
         return requestSpecification;
 
     }

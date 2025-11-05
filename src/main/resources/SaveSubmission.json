@@ -99,5 +99,15 @@
     "PolicyEffectiveDate": "${{PolicyEffectiveDate}}",
     "PolicyExpirationDate": "${{PolicyExpirationDate}}",
     "IsClearanceRequired": "N",
+    "PrimaryState": "${{States}}",
+    "PaymentPlan": "Prepay",
+    "BillingType": "Agency Bill",
+    "ExpiringPolicyNumber": "",
+    "ProgramNumber": "",
+    "ProgramName": "",
+    "CommissionPercentage": "0",
+    "TotalCommissionAmount": 0,
+    "IsPremiumAuditableInd": "No",
+    "NonRenewalDescription": "",
     "EventName": "SaveSubmission_1.0.7"
 }

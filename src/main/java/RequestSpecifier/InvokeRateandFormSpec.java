@@ -5,9 +5,11 @@ import Utilities.PropertyUtils;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.Map;
+
 public class InvokeRateandFormSpec {
 
-    public static RequestSpecification SpecInvokeRate(String SubID,String carrierBlock){
+    public static RequestSpecification SpecInvokeRate(Map<String,String>map,String SubID, String carrierBlock){
 
         String url = "";
         if (PropertyUtils.getValue("EnvironmentToRun").equalsIgnoreCase("UAT")){
@@ -23,12 +25,12 @@ public class InvokeRateandFormSpec {
                 .header("Content-Type", "application/json")
                 .header("Accept-Encoding", "gzip, deflate, br")
                 .header("Connection", "keep-alive")
-                .header("EventName", "InvokeRateFormWorkFlow_10.0.0")
+                .header("EventName", "InvokeRateFormWorkFlow_11.1.0.0")
                 .header("Token",PropertyUtils.getValue("Token"))
                 .header("OwnerId", PropertyUtils.getValue("OwnerId"))
                 .header("Mode", PropertyUtils.getValue("Mode"))
                 .header("Environment", PropertyUtils.getValue("Env"))
-                .body(InvokeRateandForm.invokeRateandFormRequest(SubID,carrierBlock));
+                .body(InvokeRateandForm.invokeRateandFormRequest(map,SubID,carrierBlock));
         return requestSpecification;
 
     }

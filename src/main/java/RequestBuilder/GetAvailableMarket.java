@@ -2,9 +2,11 @@ package RequestBuilder;
 
 import Utilities.PropertyUtils;
 
+import java.util.Map;
+
 public class GetAvailableMarket {
 
-    public static String getAvailableMarketRequest(String SubID){
+    public static String getAvailableMarketRequest(String SubID, Map<String,String>map){
 
         return "{\n" +
                 "    \"SelectedLineOfBusiness\": [\n" +
@@ -38,7 +40,7 @@ public class GetAvailableMarket {
                 "    \"ProductVerNumber\": \""+PropertyUtils.getValue("ProductVerNumber")+"\",\n" +
                 "    \"QuoteType\": \"New Business\",\n" +
                 "    \"RepositoryName\": \"Submission\",\n" +
-                "    \"PolicyEffectiveDate\": \""+PropertyUtils.getValue("PolicyEffectiveDate")+"\",\n" +
+                "    \"PolicyEffectiveDate\": \""+map.get("PolicyEffectiveDate")+"\",\n" +
                 "    \"TermInMonths\": \"12\"\n" +
                 "}";
 
